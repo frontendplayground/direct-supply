@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!--[if IE 6]><html id="ie6" lang="en-US"> <![endif]--><!--[if IE 7]><html id="ie7" lang="en-US"> <![endif]--><!--[if IE 8]><html id="ie8" lang="en-US"> <![endif]--><!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<script type="text/javascript">
+	(window.NREUM||(NREUM={})).loader_config={licenseKey:"01bb64b222",applicationID:"90775721"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1169.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);
+	</script>
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display%3Aregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7COpen+Sans%3A300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;display=swap" id="ao_optimized_gfonts" onload="this.onload=null;this.rel='stylesheet'" rel="preload">
+	<link href="https://www.directsupply.com/xmlrpc.php" rel="pingback"><!--[if lt IE 9]> <script src="https://www.directsupply.com/wp-content/themes/Extra/scripts/ext/html5.js" type="text/javascript"></script> <![endif]-->
+	<script type="text/javascript">
+	document.documentElement.className = 'js';
+	</script>
+	<link href="https://www.directsupply.com/wp-content/uploads/autoptimize/css/autoptimize_ebaf78b89cf385af075e4629fcc51879.css" media="all" rel="stylesheet">
+	<title>Contact Us | Direct Supply</title>
+	<script>
+	var quizSiteUrl = 'https://www.directsupply.com/';
+	</script>
+	<meta content="We’re here to help! No matter what you need, simply let us know." name="description">
+	<meta content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots">
+	<link href="https://www.directsupply.com/contact/" rel="canonical">
+	<meta content="en_US" property="og:locale">
+	<meta content="article" property="og:type">
+	<meta content="Contact Us | Direct Supply" property="og:title">
+	<meta content="We’re here to help! No matter what you need, simply let us know." property="og:description">
+	<meta content="https://www.directsupply.com/contact/" property="og:url">
+	<meta content="Direct Supply" property="og:site_name">
+	<meta content="https://www.facebook.com/directsupply" property="article:publisher">
+	<meta content="summary_large_image" name="twitter:card">
+	<meta content="We’re here to help! No matter what you need, simply let us know." name="twitter:description">
+	<meta content="Contact Us | Direct Supply" name="twitter:title">
+	<meta content="@_DirectSupply" name="twitter:site">
+	<meta content="@_DirectSupply" name="twitter:creator">
+	<script class='yoast-schema-graph yoast-schema-graph--main' type='application/ld+json'>
+	{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.directsupply.com/#organization","name":"Direct Supply","url":"https://www.directsupply.com/","sameAs":["https://www.facebook.com/directsupply","http://www.linkedin.com/company/direct-supply","http://www.youtube.com/directsupplyvideos","https://en.wikipedia.org/wiki/Direct_Supply","https://twitter.com/_DirectSupply"],"logo":{"@type":"ImageObject","@id":"https://www.directsupply.com/#logo","inLanguage":"en-US","url":"https://images.directsupply.com/KgcNJVk-MNu2mdLQ/w:auto/h:auto/q:90/https://www.directsupply.com/wp-content/uploads/2018/10/Direct_Supply_logo.png","width":432,"height":139,"caption":"Direct Supply"},"image":{"@id":"https://www.directsupply.com/#logo"}},{"@type":"WebSite","@id":"https://www.directsupply.com/#website","url":"https://www.directsupply.com/","name":"Direct Supply","inLanguage":"en-US","description":"Your partner in pushing Senior Living forward","publisher":{"@id":"https://www.directsupply.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://www.directsupply.com/?s={search_term_string}","query-input":"required name=search_term_string"}]},{"@type":"WebPage","@id":"https://www.directsupply.com/contact/#webpage","url":"https://www.directsupply.com/contact/","name":"Contact Us | Direct Supply","isPartOf":{"@id":"https://www.directsupply.com/#website"},"inLanguage":"en-US","datePublished":"2018-10-26T18:35:44+00:00","dateModified":"2020-07-21T15:54:43+00:00","description":"We\u2019re here to help! No matter what you need, simply let us know.","potentialAction":[{"@type":"ReadAction","target":["https://www.directsupply.com/contact/"]}]}]}
+	</script>
+	<link href='//www.directsupply.com' rel='dns-prefetch'>
+	<link href='//use.fontawesome.com' rel='dns-prefetch'>
+	<link href='//cdn.jsdelivr.net' rel='dns-prefetch'>
+	<link href='//www.googletagmanager.com' rel='dns-prefetch'>
+	<link href='//images.directsupply.com' rel='dns-prefetch'>
+	<link href='https://fonts.googleapis.com' rel='preconnect'>
+	<link href='https://fonts.gstatic.com' rel='preconnect'>
+	<link href='https://www.googletagmanager.com' rel='preconnect'>
+	<link href='https://www.google-analytics.com' rel='preconnect'>
+	<link href='https://use.fontawesome.com' rel='preconnect'>
+	<link href='https://extend.vimeocdn.com' rel='preconnect'>
+	<link href='https://js-agent.newrelic.com' rel='preconnect'>
+	<link href='https://images.directsupply.com' rel='preconnect'>
+	<link href="https://www.directsupply.com/feed/" rel="alternate" title="Direct Supply &raquo; Feed" type="application/rss+xml">
+	<link href="https://www.directsupply.com/comments/feed/" rel="alternate" title="Direct Supply &raquo; Comments Feed" type="application/rss+xml">
+	<meta content="Extra Child Theme v." name="generator">
+	<link href='https://www.directsupply.com/wp-includes/css/dashicons.min.css' id='dashicons-css' media='all' rel='stylesheet' type='text/css'>
+	<script src='https://www.directsupply.com/wp-includes/js/jquery/jquery.js' type='text/javascript'>
+	</script>
+	<script type='text/javascript'>
+	var wp_konami_code_js_local = {"wp_konami_code_page":"https:\/\/www.directsupply.com\/door-to-nowhere\/"};
+	</script>
+	<script src='https://use.fontawesome.com/f5517e0c9a.js' type='text/javascript'>
+	</script>
+	<script type='text/javascript'>
+	var et_core_api_spam_recaptcha = {"site_key":"","page_action":{"action":"contact"}};
+	</script>
+	<script src='https://www.googletagmanager.com/gtag/js?id=UA-36863627-14' type='text/javascript'>
+	</script>
+	<script type='text/javascript'>
+	window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-36863627-14', {"anonymize_ip":true} );
+	</script>
+	<link href='https://www.directsupply.com/wp-json/' rel='https://api.w.org/'>
+	<link href="https://www.directsupply.com/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml">
+	<link href="https://www.directsupply.com/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml">
+	<link href='https://www.directsupply.com/?p=2816' rel='shortlink'>
+	<link href="https://www.directsupply.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.directsupply.com%2Fcontact%2F" rel="alternate" type="application/json+oembed">
+	<link href="https://www.directsupply.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.directsupply.com%2Fcontact%2F&#038;format=xml" rel="alternate" type="text/xml+oembed">
+	<meta content="Site Kit by Google 1.11.1" name="generator">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" name="viewport">
+	<link href="https://www.directsupply.com/wp-content/uploads/2017/11/favicon.ico" rel="shortcut icon">
+	<meta content="Optimole 2.4.1" name="generator">
+	<script type="application/javascript">
+	document.documentElement.className += " optimole_has_js";
+	                   (function(w, d){ 
+	                       var b = d.getElementsByTagName("head")[0];
+	                       var s = d.createElement("script");
+	                       var v = ("IntersectionObserver" in w && "isIntersecting" in w.IntersectionObserverEntry.prototype) ? "_no_poly" : "";
+	                       s.async = true;  
+	                       s.src = "https://d5jmkjjpb7yfg.cloudfront.net/v2/latest/optimole_lib" + v  + ".min.js"; 
+	                       b.appendChild(s);
+	                       w.optimoleData = {
+	                           lazyloadOnly: "optimole-lazy-only",
+	                           backgroundReplaceClasses: [],
+	                           scalingDisabled: false,
+	                           watchClasses: [],
+	                           backgroundLazySelectors: ".elementor-section[data-settings*=\"background_background\"], .elementor-section > .elementor-background-overlay, .wp-block-cover[style*=\"background-image\"]",
+	                           network_optimizations: true,
+	                           ignoreDpr: false,
+	                           quality: 90
+	                       }
+	                       
+	                   }(window, document));
+	                   
+	                   document.addEventListener( "DOMContentLoaded", function() { document.body.className = document.body.className.replace("optimole-no-script",""); } );
+	</script>
+	<script>
+	jQuery(function($){
+	       $("div#et_social_followers-2 a").attr('target', '_blank');
+	       $("#footer-nav ul.et-extra-social-icons a").attr('target', '_blank');
+	       $(".search-field").attr("placeholder", "Search blog");
+	});
+	</script>
+	<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MCBLDBQ');
+	</script>
+	<meta content="1Ovi5aTeX3xUuf-du9jH-AUgHYJEdGYEgJahzNFNPro" name="google-site-verification">
+	<script src="https://kit.fontawesome.com/fe1c1bcb21.js">
+    </script>
+    
+</head>
+<body class="page-template page-template-page-template-fullwidth page-template-page-template-fullwidth-php page page-id-2816 divi-font-awesome et_extra et_pb_pagebuilder_layout et_fixed_nav et_pb_pagebuilder_fullwidth et_pb_gutters3 et_primary_nav_dropdown_animation_Default et_secondary_nav_dropdown_animation_Default et_includes_sidebar et-db optimole-no-script">
+	<div class="page-container" id="page-container">
+		<header class="header left-right">
+			<div id="main-header-wrapper">
+				<div data-fixed-height="80" id="main-header">
+					<div class="container">
+						<a class="logo" data-fixed-height="88" href="https://www.directsupply.com/"><noscript><img alt="Direct Supply" src="https://images.directsupply.com/KgcNJVk-cvs-RIdC/w:auto/h:auto/q:90/https://www.directsupply.com/wp-content/uploads/2019/10/direct-supply-logo.svg"></noscript><img alt="Direct Supply" class="lazyload" data-src="https://images.directsupply.com/KgcNJVk-cvs-RIdC/w:auto/h:auto/q:90/https://www.directsupply.com/wp-content/uploads/2019/10/direct-supply-logo.svg" id="logo" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E'></a>
+						<div class="" id="et-navigation">
+							<ul class="nav" id="et-menu">
+								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3288" id="menu-item-3288">
+									<a href="https://www.directsupply.com/products/">Products</a>
+								</li>
+								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3289" id="menu-item-3289">
+									<a href="#">Solutions</a>
+									<ul class="sub-menu">
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3290" id="menu-item-3290">
+											<a href="https://www.directsupply.com/solutions/building-management/">Building Management</a>
+										</li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5539" id="menu-item-5539">
+											<a href="https://www.directsupply.com/solutions/ds-smart/">Connected Care</a>
+										</li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3291" id="menu-item-3291">
+											<a href="https://www.directsupply.com/solutions/design-renovation-construction/">Design, Construction &#038; Renovation</a>
+										</li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3292" id="menu-item-3292">
+											<a href="https://www.directsupply.com/solutions/health-wellness/">Health &#038; Wellness</a>
+										</li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3293" id="menu-item-3293">
+											<a href="https://www.directsupply.com/solutions/procurement/">Procurement</a>
+										</li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3294" id="menu-item-3294">
+											<a href="https://www.directsupply.com/solutions/technology/">Technology</a>
+										</li>
+									</ul>
+								</li>
+								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6448" id="menu-item-6448">
+									<a href="https://www.directsupply.com/innovation/">Innovation</a>
+								</li>
+								<li class="insights-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-3323" id="menu-item-3323">
+									<a href="https://www.directsupply.com/insights/">Insights</a>
+								</li>
+								<li class="stories-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-7453" id="menu-item-7453">
+									<a href="https://www.directsupply.com/stories/">Stories</a>
+								</li>
+								<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2816 current_page_item menu-item-3297" id="menu-item-3297">
+									<a href="https://www.directsupply.com/contact/">Contact</a>
+								</li>
+								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3298" id="menu-item-3298">
+									<a href="https://store.directsupply.com/?utm_source=directsupply.com&#038;utm_medium=Referral&#038;utm_campaign=top_shop_link" rel="noopener noreferrer" target="_blank"><i class="fa fa-shopping-cart"></i> <span class="fontawesome-text">Shop</span></a>
+								</li>
+							</ul>
+							<div id="et-mobile-navigation">
+								<span class="show-menu"></span>
+								<div class="show-menu-button">
+									<span class="show-menu"><span></span> <span></span> <span></span></span>
+								</div>
+								<p>Select Page</p>
+								<nav></nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="et-boc" id="et-boc">
+			<div class="et-l et-l--post">
+				<div class="et_builder_inner_content et_pb_gutters3">
+					<div class="et_pb_section et_pb_section_0 et_animated et_pb_fullwidth_section et_section_regular section_has_divider et_pb_bottom_divider">
+						<section class="et_pb_module et_pb_fullwidth_header et_pb_fullwidth_header_0 et_pb_text_align_center et_pb_bg_layout_dark" style=" background-position: bottom center;
+						background-image: url(https://images.directsupply.com/KgcNJVk-Ylme8kat/w:auto/h:auto/q:90/https://www.directsupply.com/wp-content/uploads/2019/12/splash-still-50.jpg);
+						background-color: #3d7799;">
+							<div class="et_pb_fullwidth_header_container center">
+								<div class="header-content-container center">
+									<div class="header-content">
+
+										   <!------------------------------------------------------------------ 
+                                                   Dynamic content
+                       					  -------------------------------------------------------------------->
+										<h1 class="et_pb_module_header"></h1>
+										
+										<div class="et_pb_header_content_wrapper"> </div>
+										 <!------------------------------------------------------------------ 
+                                                   /Dynamic content 
+                       					  -------------------------------------------------------------------->
+                             
+									</div>
+								</div>
+							</div>
+							<div class="et_pb_fullwidth_header_overlay"></div>
+							<div class="et_pb_fullwidth_header_scroll"></div>
+						</section>
+						<div class="et_pb_bottom_inside_divider et-no-transition"></div>
+					</div>
+			
+
+                         <!------------------------------------------------------------------ 
+                                                    Custom dynamic HTML and content
+                         -------------------------------------------------------------------->
+
+                         <section class="ds"></section>
+
+                        <!------------------------------------------------------------------ 
+                                                    / Custom dynamic HTML and content
+                         -------------------------------------------------------------------->
+						
+				
+					<div class="et_pb_section et_pb_section_2 et_pb_with_background et_section_regular">
+						<div class="et_pb_row et_pb_row_1">
+							<div class="et_pb_column et_pb_column_4_4 et_pb_column_1 et_pb_css_mix_blend_mode_passthrough et-last-child">
+								<div class="et_pb_module et_pb_blurb et_pb_blurb_1 et_pb_text_align_center et_pb_blurb_position_top et_pb_bg_layout_light">
+									<div class="et_pb_blurb_content">
+										<div class="et_pb_blurb_container">
+											<h4 class="et_pb_module_header"><span>Call or chat with us now!</span></h4>
+											<div class="et_pb_blurb_description">
+												<p style="text-align: center;">Our team is ready to help you right away! Please call <strong>1-800-634-7328</strong> or use the Live Chat button below.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="et_pb_button_module_wrapper et_pb_button_0_wrapper et_pb_button_alignment_center et_pb_module">
+									<a class="et_pb_button et_pb_button_0 et_hover_enabled et_pb_bg_layout_light" href="">Live Chat</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="et_pb_section et_pb_section_3 et_section_specialty section_has_divider et_pb_bottom_divider et_pb_top_divider">
+						<div class="et_pb_top_inside_divider et-no-transition"></div>
+						<div class="et_pb_row">
+							<div class="et_pb_column et_pb_column_1_2 et_pb_column_2 et_pb_specialty_column et_pb_css_mix_blend_mode_passthrough">
+								<div class="et_pb_row_inner et_pb_row_inner_0">
+									<div class="et_pb_column et_pb_column_4_4 et_pb_column_inner et_pb_column_inner_0 et-last-child">
+										<div class="et_pb_module et_pb_blurb et_pb_blurb_2 et_pb_text_align_center et_pb_blurb_position_top et_pb_bg_layout_dark">
+											<div class="et_pb_blurb_content">
+												<div class="et_pb_main_blurb_image">
+													<span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">~|icon_pin_alt~|elegant-themes~|outline</span></span>
+												</div>
+												<div class="et_pb_blurb_container">
+													<h1 class="et_pb_module_header"><span>Our Location</span></h1>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="et_pb_row_inner et_pb_row_inner_1 et_pb_gutters1">
+									<div class="et_pb_column et_pb_column_1_4 et_pb_column_inner et_pb_column_inner_1">
+										<div class="et_pb_module et_pb_text et_pb_text_1 et_pb_text_align_left et_pb_bg_layout_dark">
+											<div class="et_pb_text_inner">
+												<p style="text-align: center;"><strong>Main Campus<br></strong>7301 W. Champions Way<br>
+												Milwaukee, WI 53223</p>
+												<p style="text-align: center;"><a href="https://www.google.com/maps/place/Direct+Supply/@43.1411893,-88.0047087,17z/data=!4m12!1m6!3m5!1s0x88051d4659eccbf9:0x1a9a937fb0d4e5e9!2sDirect+Supply!8m2!3d43.1411854!4d-88.0025147!3m4!1s0x88051d4659eccbf9:0x1a9a937fb0d4e5e9!8m2!3d43.1411854!4d-88.0025147" rel="noopener noreferrer" target="_blank">Open in Maps</a></p>
+												<p style="text-align: center;">Visitors, please enter our campus via the intersection of North 76th Street and West Green Tree Road.</p>
+											</div>
+										</div>
+										<div class="et_pb_button_module_wrapper et_pb_button_1_wrapper et_pb_button_alignment_center et_pb_module">
+											<a class="et_pb_button et_pb_button_1 et_pb_bg_layout_dark" href="https://images.directsupply.com/KgcNJVk-xzv8uV1z/w:auto/h:auto/q:90/https://www.directsupply.com/wp-content/uploads/2019/04/Direct-Supply-Guest-Parking-Map-2019.png" target="_blank">View Campus Map</a>
+										</div>
+									</div>
+									<div class="et_pb_column et_pb_column_1_4 et_pb_column_inner et_pb_column_inner_2 et-last-child">
+										<div class="et_pb_module et_pb_text et_pb_text_2 et_pb_text_align_left et_pb_bg_layout_dark">
+											<div class="et_pb_text_inner">
+												<p style="text-align: center;"><strong>Innovation &amp; Technology Center<br></strong> 1020 N Broadway<br>
+												Milwaukee, WI 53202<br>
+												<a href="https://www.google.com/maps/place/Direct+Supply+Technology+and+Innovation+Center/@43.0440856,-87.9102479,17z/data=!3m1!4b1!4m5!3m4!1s0x8805198d6c9bc6d3:0x2005dc0304e7a899!8m2!3d43.0440856!4d-87.9080539" rel="noopener noreferrer" target="_blank">Open in Maps</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="et_pb_column et_pb_column_1_2 et_pb_column_3 et_pb_css_mix_blend_mode_passthrough">
+								<div class="et_pb_module et_pb_blurb et_pb_blurb_3 et_pb_text_align_center et_pb_blurb_position_top et_pb_bg_layout_dark">
+									<div class="et_pb_blurb_content">
+										<div class="et_pb_main_blurb_image">
+											<span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">~|icon_cart_alt~|elegant-themes~|outline</span></span>
+										</div>
+										<div class="et_pb_blurb_container">
+											<h1 class="et_pb_module_header"><span>Looking for Products?</span></h1>
+										</div>
+									</div>
+								</div>
+								<div class="et_pb_module et_pb_text et_pb_text_3 et_pb_text_align_left et_pb_bg_layout_dark">
+									<div class="et_pb_text_inner">
+										<p style="text-align: center;">Discover all the products you need to deliver exceptional care.</p>
+									</div>
+								</div>
+								<div class="et_pb_button_module_wrapper et_pb_button_2_wrapper et_pb_button_alignment_center et_pb_module">
+									<a class="et_pb_button et_pb_button_2 et_pb_bg_layout_dark" href="https://store.directsupply.com" target="_blank">Shop Now</a>
+								</div>
+								<div class="et_pb_button_module_wrapper et_pb_button_3_wrapper et_pb_button_alignment_center et_pb_module">
+									<a class="et_pb_button et_pb_button_3 et_pb_bg_layout_dark" href="https://store.directsupply.com/Promotions/resources.html" target="_blank">Product Resources</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footer_columns_3" id="footer">
+			<div class="et_pb_section et_pb_section_5 et_pb_with_background et_section_regular">
+				<div class="et_pb_row et_pb_row_2 et_pb_gutters2">
+					<div class="et_pb_column et_pb_column_1_2 et_pb_column_4 et_pb_css_mix_blend_mode_passthrough">
+						<div class="et_pb_module et_pb_text et_pb_text_4 et_pb_text_align_left et_pb_bg_layout_light">
+							<div class="et_pb_text_inner">
+								<h4>Our Mission</h4>
+								<p>Since 1985, Direct Supply has been committed to enhancing the lives of seniors and those who care for them. We help Senior Living providers create amazing environments, improve care and outcomes, optimize building operations, streamline procurement and more. While the Senior Living industry evolves at a record pace, Direct Supply is dedicated to delivering world-class solutions, Taking Cost Out of Healthcare<sup style="line-height: 0;">®</sup> and pushing Senior Living forward.</p>
+							</div>
+						</div>
+					</div>
+					<div class="et_pb_column et_pb_column_1_6 et_pb_column_5 et_pb_css_mix_blend_mode_passthrough">
+						<div class="et_pb_module et_pb_text et_pb_text_5 et_pb_text_align_left et_pb_bg_layout_light">
+							<div class="et_pb_text_inner">
+								<h4>Our Businesses</h4>
+								<p><span style="color: #333333;"><a href="https://store.directsupply.com/" rel="noopener noreferrer" style="color: #333333;" target="_blank">Shop Products</a></span><br>
+								<span style="color: #333333;"><a href="https://www.tels.net/" rel="noopener noreferrer" style="color: #333333;" target="_blank">TELS</a></span><br>
+								<span style="color: #333333;"><a href="https://www.dssi.net/" rel="noopener noreferrer" style="color: #333333;" target="_blank">DSSI</a></span><br>
+								<span style="color: #333333;"><a href="https://www.aptura.net/" rel="noopener noreferrer" style="color: #333333;" target="_blank">Aptura</a></span><br>
+								<span style="color: #333333;"><a href="https://www.maxwellthomas.com/" rel="noopener noreferrer" style="color: #333333;" target="_blank">Maxwell Thomas</a></span><br>
+								<span style="color: #333333;"><a href="http://www.directsupply.com.cn/en/" rel="noopener noreferrer" style="color: #333333;" target="_blank">Direct Supply® China</a></span></p>
+							</div>
+						</div>
+					</div>
+					<div class="et_pb_column et_pb_column_1_6 et_pb_column_6 et_pb_css_mix_blend_mode_passthrough">
+						<div class="et_pb_module et_pb_text et_pb_text_6 et_pb_text_align_left et_pb_bg_layout_light">
+							<div class="et_pb_text_inner">
+								<h4 class="widgettitle">Our Company</h4>
+								<p><span style="color: #333333;"><a href="/about/" style="color: #333333;">About</a></span><br>
+								<span style="color: #333333;"><a href="/careers/" style="color: #333333;">Careers</a></span><br>
+								<a href="/innovation/" style="color: #333333;">Innovation &amp; Technology Center</a><br>
+								<span style="color: #333333;"><a href="/sitemap/" style="color: #333333;">Sitemap</a></span></p>
+							</div>
+						</div>
+					</div>
+					<div class="et_pb_column et_pb_column_1_6 et_pb_column_7 et_pb_css_mix_blend_mode_passthrough et-last-child">
+						<div class="et_pb_module et_pb_text et_pb_text_7 et_pb_text_align_left et_pb_bg_layout_light">
+							<div class="et_pb_text_inner">
+								<h4>Support</h4>
+								<p><span style="color: #333333;"><a href="/contact/" style="color: #333333;">Contact</a></span><br>
+								<span style="color: #333333;"><a href="https://store.directsupply.com/Promotions/resources.html" rel="noopener noreferrer" style="color: #333333;" target="_blank">Product Resources</a></span><br>
+								<span style="color: #333333;"><a href="https://www.directs.com/dssi/" rel="noopener noreferrer" style="color: #333333;" target="_blank">DSSI Sign In</a></span><br>
+								<span style="color: #333333;"><a href="https://www.tels.net/" rel="noopener noreferrer" style="color: #333333;" target="_blank">TELS Sign In</a></span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer-bottom">
+				<div class="container">
+					<div id="footer-tagline">
+						<strong>Taking Cost Out of Healthcare<sup>&reg;</sup></strong>
+					</div>
+					<p id="footer-info">&copy; 2009 - 2020 Direct Supply, Inc. All rights reserved.<br>
+					<a href="/legal/terms-of-use/" style="color: rgba(255,255,255,.6);font-weight:normal;">Terms of Use &amp; Privacy</a> | <a href="/legal/application-privacy/" style="color: rgba(255,255,255,.6);font-weight:normal;">Applicant Privacy &amp; Legal Information</a></p>
+					<div id="footer-nav">
+						<ul class="et-extra-social-icons" style="">
+							<li class="et-extra-social-icon facebook">
+								<a class="et-extra-icon et-extra-icon-background-none et-extra-icon-facebook" href="https://www.facebook.com/directsupply"></a>
+							</li>
+							<li class="et-extra-social-icon twitter">
+								<a class="et-extra-icon et-extra-icon-background-none et-extra-icon-twitter" href="https://twitter.com/_DirectSupply"></a>
+							</li>
+							<li class="et-extra-social-icon linkedin">
+								<a class="et-extra-icon et-extra-icon-background-none et-extra-icon-linkedin" href="http://www.linkedin.com/company/direct-supply"></a>
+							</li>
+							<li class="et-extra-social-icon youtube">
+								<a class="et-extra-icon et-extra-icon-background-none et-extra-icon-youtube" href="http://www.youtube.com/directsupplyvideos"></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script type="text/javascript">
+	var sbiajaxurl = "https://www.directsupply.com/wp-admin/admin-ajax.php";
+	</script> 
+	<script type="text/javascript">
+	var et_animation_data = [{"class":"et_pb_section_0","style":"fade","repeat":"once","duration":"1000ms","delay":"0ms","intensity":"50%","starting_opacity":"0%","speed_curve":"ease-in-out"},{"class":"et_pb_blurb_0","style":"fade","repeat":"once","duration":"1000ms","delay":"0ms","intensity":"50%","starting_opacity":"0%","speed_curve":"ease-in-out"},{"class":"et_pb_text_0","style":"slideBottom","repeat":"once","duration":"1000ms","delay":"0ms","intensity":"50%","starting_opacity":"0%","speed_curve":"ease-in-out"}];
+	</script> <noscript>
+	<style>
+	.lazyload{display:none;}
+	</style></noscript>
+	<script data-noptimize="1">
+	window.lazySizesConfig=window.lazySizesConfig||{};window.lazySizesConfig.loadMode=1;
+	</script>
+	<script async data-noptimize="1" src='https://www.directsupply.com/wp-content/plugins/autoptimize/classes/external/js/lazysizes.min.js?ao_version=2.7.3'>
+	</script> <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-MCBLDBQ" style="display:none;visibility:hidden" width="0"></iframe></noscript> 
+	<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js' type='text/javascript'>
+	</script> 
+	<script type='text/javascript'>
+	var EXTRA = {"images_uri":"https:\/\/www.directsupply.com\/wp-content\/themes\/Extra\/images\/","ajaxurl":"https:\/\/www.directsupply.com\/wp-admin\/admin-ajax.php","your_rating":"Your Rating:","item_in_cart_count":"%d Item in Cart","items_in_cart_count":"%d Items in Cart","item_count":"%d Item","items_count":"%d Items","rating_nonce":"261348da7c","timeline_nonce":"97475460d9","blog_feed_nonce":"f1050980c8","error":"There was a problem, please try again.","contact_error_name_required":"Name field cannot be empty.","contact_error_email_required":"Email field cannot be empty.","contact_error_email_invalid":"Please enter a valid email address.","is_ab_testing_active":"","is_cache_plugin_active":"no"};
+	</script> 
+	<script type='text/javascript'>
+	var et_frontend_scripts = {"builderCssContainerPrefix":"#et-boc","builderCssLayoutPrefix":"#et-boc .et-l"};
+	var et_pb_custom = {"ajaxurl":"https:\/\/www.directsupply.com\/wp-admin\/admin-ajax.php","images_uri":"https:\/\/www.directsupply.com\/wp-content\/themes\/Extra\/images","builder_images_uri":"https:\/\/www.directsupply.com\/wp-content\/themes\/Extra\/includes\/builder\/images","et_frontend_nonce":"430227d5a2","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","et_ab_log_nonce":"b87dc9fe7a","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","wrong_checkbox":"Checkbox","ignore_waypoints":"no","is_divi_theme_used":"","widget_search_selector":".widget_search","ab_tests":[],"is_ab_testing_active":"","page_id":"2816","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"no","is_shortcode_tracking":"","tinymce_uri":""};
+	var et_pb_box_shadow_elements = [];
+	var et_pb_motion_elements = {"desktop":[],"tablet":[],"phone":[]};
+	</script> 
+	<script src='https://www.directsupply.com/wp-content/uploads/autoptimize/js/autoptimize_single_06b960bcb9eba78831cdfe9a20b67d67.js' type='text/javascript'>
+	</script> 
+	<script src='https://www.google.com/recaptcha/api.js?onload=wpformsRecaptchaLoad&#038;render=explicit' type='text/javascript'>
+	</script> 
+	<script type='text/javascript'>
+	var wpformsRecaptchaLoad = function(){jQuery(".g-recaptcha").each(function(index,el){var recaptchaID = grecaptcha.render(el,{callback:function(){wpformsRecaptchaCallback(el);}},true);jQuery(el).closest("form").find("button[type=submit]").get(0).recaptchaID = recaptchaID;});};var wpformsRecaptchaCallback = function(el){var $form = jQuery(el).closest("form");if(typeof wpforms.formSubmit === "function"){wpforms.formSubmit($form);}else{$form.find("button[type=submit]").get(0).recaptchaID = false;$form.submit();}};
+	</script>
+	<style id="et-builder-module-design-2816-cached-inline-styles">
+	.et_pb_section_0.section_has_divider.et_pb_bottom_divider .et_pb_bottom_inside_divider{background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMjRweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNGRkZGRkYiPjxwYXRoIGQ9Ik0xMjgwIDMuNEMxMDUwLjU5IDE4IDEwMTkuNCA4NC44OSA3MzQuNDIgODQuODljLTMyMCAwLTMyMC04NC4zLTY0MC04NC4zQzU5LjQuNTkgMjguMiAxLjYgMCAzLjRWMTQwaDEyODB6IiBmaWxsLW9wYWNpdHk9Ii4zIi8+PHBhdGggZD0iTTAgMjQuMzFjNDMuNDYtNS42OSA5NC41Ni05LjI1IDE1OC40Mi05LjI1IDMyMCAwIDMyMCA4OS4yNCA2NDAgODkuMjQgMjU2LjEzIDAgMzA3LjI4LTU3LjE2IDQ4MS41OC04MFYxNDBIMHoiIGZpbGwtb3BhY2l0eT0iLjUiLz48cGF0aCBkPSJNMTI4MCA1MS43NmMtMjAxIDEyLjQ5LTI0Mi40MyA1My40LTUxMy41OCA1My40LTMyMCAwLTMyMC01Ny02NDAtNTctNDguODUuMDEtOTAuMjEgMS4zNS0xMjYuNDIgMy42VjE0MGgxMjgweiIvPjwvZz48L3N2Zz4=);background-size:100% 124px;bottom:0;height:124px;z-index:10}.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h1,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h2.et_pb_module_header,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h3.et_pb_module_header,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h4.et_pb_module_header,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h5.et_pb_module_header,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h6.et_pb_module_header{font-weight:normal;text-transform:none;font-size:69px;line-height:1.1em;text-shadow:0em 0em 0.3em rgba(0,0,0,0.4)}.et_pb_fullwidth_header_0.et_pb_fullwidth_header .et_pb_header_content_wrapper{font-size:20px;line-height:1.6em;text-shadow:0em 0em 0.3em rgba(0,0,0,0.4)}.et_pb_fullwidth_header.et_pb_fullwidth_header_0{background-image:url(https://images.directsupply.com/KgcNJVk-TXX_KBbt/w:auto/h:auto/q:90/https://www.directsupply.com//wp-content/uploads/2018/10/DSI_People-Mtg-9_IH_2013.jpg);background-color:#3d7799}.et_pb_fullwidth_header_0{padding-top:100px;padding-bottom:160px}.et_pb_fullwidth_header_0.et_pb_fullwidth_header .et_pb_fullwidth_header_container .header-content{max-width:70%}.et_pb_fullwidth_header_0.et_pb_fullwidth_header .et_pb_fullwidth_header_overlay{background-color:rgba(0,0,0,0.4)}.et_pb_section_1{padding-top:30px;padding-right:0px;padding-bottom:0px;padding-left:0px}.et_pb_row_1.et_pb_row{padding-top:0px!important;padding-right:0px!important;padding-bottom:0px!important;padding-left:0px!important;padding-top:0;padding-right:0px;padding-bottom:0;padding-left:0px}.et_pb_row_0.et_pb_row{padding-top:0px!important;padding-right:0px!important;padding-bottom:0px!important;padding-left:0px!important;padding-top:0;padding-right:0px;padding-bottom:0;padding-left:0px}.et_pb_blurb_0.et_pb_blurb .et_pb_module_header,.et_pb_blurb_0.et_pb_blurb .et_pb_module_header a{font-family:'Playfair Display',Georgia,"Times New Roman",serif;font-weight:normal;text-transform:none;font-size:50px}.et_pb_blurb_0.et_pb_blurb p{line-height:1.6em}.et_pb_text_4 p{line-height:1.6em}.et_pb_blurb_0.et_pb_blurb{font-size:20px;line-height:1.6em}.et_pb_blurb_0 .et_pb_blurb_content{max-width:900px}.et_pb_text_0.et_pb_text{color:#333333!important}.et_pb_section_2{padding-top:56.875px;padding-right:0px;padding-bottom:75px;padding-left:0px}.et_pb_section_5.et_pb_section{background-color:#f5f5f5!important}.et_pb_section_2.et_pb_section{background-color:#f5f5f5!important}.et_pb_blurb_1.et_pb_blurb .et_pb_module_header,.et_pb_blurb_1.et_pb_blurb .et_pb_module_header a{font-weight:normal;text-transform:none;font-size:40px}.et_pb_button_0_wrapper .et_pb_button_0,.et_pb_button_0_wrapper .et_pb_button_0:hover{padding-top:10px!important;padding-right:20px!important;padding-bottom:10px!important;padding-left:20px!important}body #page-container .et_pb_section .et_pb_button_0{color:#333333!important;border-width:1px!important;border-color:#dddddd;background-color:#eeeeee}body #page-container .et_pb_section .et_pb_button_0:hover{border-color:#cccccc!important;background-image:initial!important;background-color:#dddddd!important}body #page-container .et_pb_section .et_pb_button_0:before,body #page-container .et_pb_section .et_pb_button_0:after{display:none!important}.et_pb_button_0,.et_pb_button_0:after{transition:all 300ms ease 0ms}.et_pb_button_3,.et_pb_button_3:after{transition:all 300ms ease 0ms}.et_pb_button_2,.et_pb_button_2:after{transition:all 300ms ease 0ms}.et_pb_button_1,.et_pb_button_1:after{transition:all 300ms ease 0ms}div.et_pb_section.et_pb_section_3{background-image:radial-gradient(circle at center,#00b9f1 0%,#007bc3 100%)!important}.et_pb_section_3{padding-top:100px}.et_pb_section_3.section_has_divider.et_pb_top_divider .et_pb_top_inside_divider{background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNGRkZGRkYiPjxwYXRoIGQ9Ik02NDAgMTQwTDEyODAgMEgweiIvPjwvZz48L3N2Zz4=);background-size:100% 100px;top:0;height:100px;z-index:1}.et_pb_row_inner_0.et_pb_row_inner{padding-top:29.6875px!important;padding-right:0px!important;padding-bottom:33px!important;padding-left:0px!important}.et_pb_column .et_pb_row_inner_0{padding-top:29.6875px;padding-right:0px;padding-bottom:33px;padding-left:0px}.et_pb_blurb_2.et_pb_blurb .et_pb_module_header,.et_pb_blurb_2.et_pb_blurb .et_pb_module_header a{font-weight:normal;text-transform:none;font-size:50px}.et_pb_blurb_3.et_pb_blurb .et_pb_module_header,.et_pb_blurb_3.et_pb_blurb .et_pb_module_header a{font-weight:normal;text-transform:none;font-size:50px}.et_pb_blurb_2 .et-pb-icon{color:#FFFFFF}.et_pb_blurb_3 .et-pb-icon{color:#FFFFFF}.et_pb_row_inner_1.et_pb_row_inner{padding-top:0px!important;padding-right:0px!important;padding-bottom:29.6875px!important;padding-left:0px!important}.et_pb_column .et_pb_row_inner_1{padding-top:0;padding-right:0px;padding-bottom:29.6875px;padding-left:0px}.et_pb_text_3.et_pb_text a{color:#FFFFFF!important}.et_pb_text_1.et_pb_text a{color:#FFFFFF!important}.et_pb_text_2.et_pb_text a{color:#FFFFFF!important}.et_pb_text_2 a{text-decoration:underline}.et_pb_text_1 a{text-decoration:underline}.et_pb_text_3 a{text-decoration:underline}.et_pb_section_4{padding-top:55px;padding-right:0px;padding-bottom:15px;padding-left:0px}.et_pb_section_5{padding-top:55px;padding-right:0px;padding-bottom:15px;padding-left:0px}.et_pb_text_4{font-size:15px;line-height:1.6em}.et_pb_text_4 h1{font-family:'Playfair Display',Georgia,"Times New Roman",serif;font-weight:700;font-size:36px}.et_pb_text_4 h4{font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;font-weight:700}.et_pb_text_6 p{line-height:1.8em}.et_pb_text_5 p{line-height:1.8em}.et_pb_text_7 p{line-height:1.8em}.et_pb_text_5{font-size:15px;line-height:1.8em}.et_pb_text_6{font-size:15px;line-height:1.8em}.et_pb_text_7{font-size:15px;line-height:1.8em}.et_pb_text_5 h1{font-family:'Playfair Display',Georgia,"Times New Roman",serif;font-size:36px}.et_pb_text_6 h1{font-family:'Playfair Display',Georgia,"Times New Roman",serif;font-size:36px}.et_pb_text_7 h1{font-family:'Playfair Display',Georgia,"Times New Roman",serif;font-size:36px}.et_pb_text_5 h4{font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;font-weight:700;font-size:16px}.et_pb_text_6 h4{font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;font-weight:700;font-size:16px}.et_pb_text_7 h4{font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;font-weight:700;font-size:16px}.et_pb_blurb_0.et_pb_blurb.et_pb_module{margin-left:auto!important;margin-right:auto!important}.et_pb_text_0.et_pb_module{margin-left:auto!important;margin-right:auto!important}@media only screen and (min-width:981px){.et_pb_blurb_0.et_pb_blurb{max-width:60%}.et_pb_text_0{max-width:60%}.et_pb_section_2{display:none!important}}@media only screen and (max-width:980px){.et_pb_fullwidth_header_0{padding-top:20px;padding-bottom:100px}.et_pb_fullwidth_header_0.et_pb_fullwidth_header .et_pb_fullwidth_header_container .header-content{max-width:100%}.et_pb_blurb_0.et_pb_blurb .et_pb_module_header,.et_pb_blurb_0.et_pb_blurb .et_pb_module_header a{font-size:40px}.et_pb_blurb_2.et_pb_blurb .et_pb_module_header,.et_pb_blurb_2.et_pb_blurb .et_pb_module_header a{font-size:40px}.et_pb_blurb_3.et_pb_blurb .et_pb_module_header,.et_pb_blurb_3.et_pb_blurb .et_pb_module_header a{font-size:40px}.et_pb_section_3{padding-top:150px}.et_pb_button_1_wrapper{margin-bottom:50px!important}.et_pb_button_3_wrapper{margin-bottom:25px!important}}@media only screen and (min-width:768px) and (max-width:980px){.et_pb_section_2{display:none!important}}@media only screen and (max-width:767px){.et_pb_section_0.section_has_divider.et_pb_bottom_divider .et_pb_bottom_inside_divider{background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIwcHgiIHZpZXdCb3g9IjAgMCAxMjgwIDE0MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjRkZGRkZGIj48cGF0aCBkPSJNMTI4MCAzLjRDMTA1MC41OSAxOCAxMDE5LjQgODQuODkgNzM0LjQyIDg0Ljg5Yy0zMjAgMC0zMjAtODQuMy02NDAtODQuM0M1OS40LjU5IDI4LjIgMS42IDAgMy40VjE0MGgxMjgweiIgZmlsbC1vcGFjaXR5PSIuMyIvPjxwYXRoIGQ9Ik0wIDI0LjMxYzQzLjQ2LTUuNjkgOTQuNTYtOS4yNSAxNTguNDItOS4yNSAzMjAgMCAzMjAgODkuMjQgNjQwIDg5LjI0IDI1Ni4xMyAwIDMwNy4yOC01Ny4xNiA0ODEuNTgtODBWMTQwSDB6IiBmaWxsLW9wYWNpdHk9Ii41Ii8+PHBhdGggZD0iTTEyODAgNTEuNzZjLTIwMSAxMi40OS0yNDIuNDMgNTMuNC01MTMuNTggNTMuNC0zMjAgMC0zMjAtNTctNjQwLTU3LTQ4Ljg1LjAxLTkwLjIxIDEuMzUtMTI2LjQyIDMuNlYxNDBoMTI4MHoiLz48L2c+PC9zdmc+);background-size:100% 0px;bottom:0;height:0px;z-index:10;transform:rotateY(0) rotateX(0)}.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h1,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h2.et_pb_module_header,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h3.et_pb_module_header,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h4.et_pb_module_header,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h5.et_pb_module_header,.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h6.et_pb_module_header{font-size:50px}.et_pb_fullwidth_header_0{padding-bottom:0px}.et_pb_section_1{padding-top:30px;padding-bottom:30px}.et_pb_row_0.et_pb_row{padding-top:20px!important;padding-bottom:20px!important;padding-top:20px!important;padding-bottom:20px!important}.et_pb_blurb_0.et_pb_blurb .et_pb_module_header,.et_pb_blurb_0.et_pb_blurb .et_pb_module_header a{font-size:30px}.et_pb_blurb_2.et_pb_blurb .et_pb_module_header,.et_pb_blurb_2.et_pb_blurb .et_pb_module_header a{font-size:30px}.et_pb_blurb_3.et_pb_blurb .et_pb_module_header,.et_pb_blurb_3.et_pb_blurb .et_pb_module_header a{font-size:30px}.et_pb_blurb_0.et_pb_blurb{margin-bottom:10px!important}.et_pb_section_2{display:none!important}.et_pb_section_3{padding-top:50px}.et_pb_section_3.section_has_divider.et_pb_top_divider .et_pb_top_inside_divider{background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIwcHgiIHZpZXdCb3g9IjAgMCAxMjgwIDE0MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjRkZGRkZGIj48cGF0aCBkPSJNNjQwIDE0MEwxMjgwIDBIMHoiLz48L2c+PC9zdmc+);background-size:100% 0px;top:0;height:0px;z-index:1;transform:rotateY(0) rotateX(0)}.et_pb_button_1_wrapper{margin-bottom:30px!important}}
+	</style>
+	<script type='text/javascript'>
+	var wpforms_settings = {"val_required":"This field is required.","val_url":"Please enter a valid URL.","val_email":"Please enter a valid email address.","val_email_suggestion":"Did you mean {suggestion}?","val_email_suggestion_title":"Click to accept this suggestion.","val_number":"Please enter a valid number.","val_confirm":"Field values do not match.","val_fileextension":"File type is not allowed.","val_filesize":"File exceeds max size allowed. File was not uploaded.","val_time12h":"Please enter time in 12-hour AM\/PM format (eg 8:45 AM).","val_time24h":"Please enter time in 24-hour format (eg 22:45).","val_requiredpayment":"Payment is required.","val_creditcard":"Please enter a valid credit card number.","val_post_max_size":"The total size of the selected files {totalSize} Mb exceeds the allowed limit {maxSize} Mb.","val_checklimit":"You have exceeded the number of allowed selections: {#}.","val_limit_characters":"{count} of {limit} max characters.","val_limit_words":"{count} of {limit} max words.","val_recaptcha_fail_msg":"Google reCAPTCHA verification failed, please try again later.","post_max_size":"104857600","uuid_cookie":"1","locale":"en","wpforms_plugin_url":"https:\/\/www.directsupply.com\/wp-content\/plugins\/wpforms\/","gdpr":"","ajaxurl":"https:\/\/www.directsupply.com\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"currency_code":"USD","currency_thousands":",","currency_decimal":".","currency_symbol":"$","currency_symbol_pos":"left","val_phone":"Please enter a valid phone number."}
+	</script> 
+	<script type='text/javascript'>
+	var wpforms_conditional_logic = {"2891":{"15":{"logic":[[{"field":"2","operator":"==","value":"Other","type":"select"}]],"action":"show"},"1":{"logic":[[{"field":"2","operator":"!e","value":"","type":"select"}]],"action":"show"},"4":{"logic":[[{"field":"2","operator":"!e","value":"","type":"select"}]],"action":"show"},"21":{"logic":[[{"field":"2","operator":"!e","value":"","type":"select"}]],"action":"show"},"27":{"logic":[[{"field":"2","operator":"==","value":"Schedule a Visit","type":"select"}],[{"field":"2","operator":"==","value":"Product Information","type":"select"}],[{"field":"2","operator":"==","value":"Other","type":"select"}]],"action":"show"},"28":{"logic":[[{"field":"2","operator":"==","value":"Account Information","type":"select"}],[{"field":"2","operator":"==","value":"Account Setup","type":"select"}],[{"field":"2","operator":"==","value":"Order Information","type":"select"}]],"action":"show"},"9":{"logic":{"1":[{"field":"2","operator":"==","value":"Schedule a Visit","type":"select"},{"field":"27","operator":"==","value":"By Phone","type":"checkbox"}],"2":[{"field":"2","operator":"==","value":"Product Information","type":"select"},{"field":"27","operator":"==","value":"By Phone","type":"checkbox"}],"3":[{"field":"2","operator":"==","value":"Other","type":"select"},{"field":"27","operator":"==","value":"By Phone","type":"checkbox"}]},"action":"show"},"25":{"logic":[[{"field":"2","operator":"==","value":"Request a Catalog","type":"select"}]],"action":"show"},"11":{"logic":[[{"field":"2","operator":"!e","value":"","type":"select"}]],"action":"show"},"29":{"logic":[[{"field":"2","operator":"==","value":"Account Information","type":"select"}],[{"field":"2","operator":"==","value":"Account Setup","type":"select"}],[{"field":"2","operator":"==","value":"Order Information","type":"select"}]],"action":"show"},"10":{"logic":{"1":[{"field":"2","operator":"==","value":"Schedule a Visit","type":"select"},{"field":"27","operator":"==","value":"By Email","type":"checkbox"}],"2":[{"field":"2","operator":"==","value":"Product Information","type":"select"},{"field":"27","operator":"==","value":"By Email","type":"checkbox"}],"3":[{"field":"2","operator":"==","value":"Other","type":"select"},{"field":"27","operator":"==","value":"By Email","type":"checkbox"}],"4":[{"field":"2","operator":"==","value":"Request a Catalog","type":"select"}]},"action":"show"},"12":{"logic":[[{"field":"2","operator":"!e","value":"","type":"select"}]],"action":"show"},"13":{"logic":[[{"field":"2","operator":"==","value":"Order Information","type":"select"}]],"action":"show"},"14":{"logic":[[{"field":"2","operator":"==","value":"Account Setup","type":"select"}]],"action":"show"},"16":{"logic":[[{"field":"2","operator":"==","value":"Account Setup","type":"select"},{"field":"14","operator":"==","value":"Other (church, cleaning service, restaurant, etc.)","type":"select"}]],"action":"show"},"17":{"logic":[[{"field":"2","operator":"==","value":"Account Setup","type":"select"}]],"action":"show"},"18":{"logic":[[{"field":"2","operator":"==","value":"Account Setup","type":"select"},{"field":"17","operator":"==","value":"Corporate","type":"select"}]],"action":"show"},"20":{"logic":[[{"field":"2","operator":"==","value":"Account Setup","type":"select"},{"field":"17","operator":"==","value":"Corporate","type":"select"}]],"action":"show"},"22":{"logic":[[{"field":"2","operator":"==","value":"Account Setup","type":"select"}]],"action":"show"},"23":{"logic":[{"1":{"field":"14","operator":"==","value":"Reseller","type":"select"}},[{"field":"14","operator":"==","value":"Contractor","type":"select"}]],"action":"show"},"24":{"logic":[{"1":{"field":"14","operator":"==","value":"Reseller","type":"select"}},[{"field":"14","operator":"==","value":"Contractor","type":"select"}]],"action":"show"},"34":{"logic":[[{"field":"2","operator":"!e","value":"","type":"select"}]],"action":"show"}}}
+	</script> 
+	<script defer src="https://www.directsupply.com/wp-content/uploads/autoptimize/js/autoptimize_f1d05e2fd19b45f1e78100e299fa3465.js">
+	</script>
+	<script data-cfasync='false'>
+	!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){function e(){t.media=a}var a=t.media||"all";t.addEventListener?t.addEventListener("load",e):t.attachEvent&&t.attachEvent("onload",e),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(e,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+	</script>
+	<script type="text/javascript">
+	window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"01bb64b222","applicationID":"90775721","transactionName":"M1FTbBcCDEECW0FRXwobcFsRCg1cTEhUX1VJQFRVFQ8DRgYVU01cCENYXBEL","queueTime":0,"applicationTime":2646,"atts":"HxZQGl8YH08=","errorBeacon":"bam.nr-data.net","agent":""}
+    </script>
+	
+	<!------------------------------------------------------------------ 
+								jquery-2.2.4 include
+	-------------------------------------------------------------------->
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	crossorigin="anonymous"></script>
+	 <!------------------------------------------------------------------ 
+                                    /jquery-2.2.4 include
+        -------------------------------------------------------------------->
+	
+	 <!------------------------------------------------------------------ 
+                                    Custom JS
+      -------------------------------------------------------------------->
+  
+	  <script src="js/ds-test.js"></script>
+	  
+	   <!------------------------------------------------------------------ 
+                                    /Custom JS
+        -------------------------------------------------------------------->
+</body>
+</html>

@@ -1,0 +1,159 @@
+// breakpoint mixings
+@tablet-sm: ~"only screen and (min-width: 768px)";
+@tablet:  ~"only screen and (min-width: 992px)";
+@desktop:  ~"only screen and (min-width: 1200px)";
+@desktop-lg:  ~"only screen and (min-width: 1900px)";
+
+// animation mixins
+.fade-in {
+    animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    @keyframes fade-in-fwd {
+        0% {
+          transform: translateZ(-80px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateZ(0);
+          opacity: 1;
+        }
+      }
+} 
+
+.slide-out{
+    animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    @keyframes scale-up-hor-center {
+        0% {
+          transform: scaleX(0.4);
+        }
+        100% {
+          transform: scaleX(1);
+        }
+      }    
+} 
+// custom content styles
+.ds {
+    // &-page-heading{}
+    // &-page-blurb{}
+    &-sort-buttons{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 2% auto;
+        position: relative;
+        flex-wrap: wrap;
+        padding: 10% 3% 3%;
+        @media @tablet {
+            padding: 0;
+        }
+        &:before{
+            content: 'Sort By: ';
+            position: absolute;
+            left:~"calc(50% - 28px)";
+            top:13px;
+            @media @tablet {
+                left: calc(18%);
+                top: 30%;
+            }
+            @media @desktop {
+                left: calc(23%);
+               
+            }
+           
+        }
+        &.is-fixed{
+            .slide-out();
+            z-index: 10; 
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,.1);
+            background-color: rgba(255,255,255,1) !important;
+            border-bottom: 1px solid #ccc;
+            position: fixed;
+            top: 40px;
+            @media @tablet {
+                top: 25px;
+            }
+        }
+        button{
+            margin: 1%;
+            color: inherit;
+            .fade-in();
+            font-size: .75em;
+            width: 45%;
+            @media @tablet {
+                width: auto;
+            }
+        }
+    }
+    &-employee-cards {
+        width: 90%;
+        display: flex;
+         justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 0 auto;
+        @media @tablet {
+            flex-direction: row;
+            margin: 0 5% 5%;
+        }
+    }
+    &-employee-card {
+        background-color: #f5f5f5!important;
+        border: 1px solid #d8d8d8;
+        border-radius: 3px;
+        box-shadow: 0 1px 3px rgba(0,0,0,.1);
+        padding: 5%;
+        color: #333;
+        line-height: 0px;
+        .fade-in();
+        width: 100%;
+        text-align: center;
+        margin: 5% 0;
+        @media @tablet {
+        margin: 1%;
+        text-align: left;
+        padding: 3%;
+        width: 46%;
+        }
+        @media @desktop {
+            padding: 1%;
+            width: 30%;
+        }
+        &--avatar{
+            width: 75%;
+            border-radius: 50%;
+            margin: 5%;
+            @media @tablet {
+                width: 35%;
+                float: left;
+                margin: 0 20px 0 0;
+            }
+        }
+        &--name{
+            font-weight: 600;
+            font-size: 20px;
+            color: #333;
+            font-family: "Playfair Display",Georgia,"Times New Roman",serif;
+            line-height: 1.4em;
+            font-weight: 400;
+            font-size: 1.25em;
+            margin: 0;
+        }
+        &--title{
+            margin: 0;
+            font-style: italic;
+            font-size: .8em;
+            line-height: 1.25em;
+            color: lighten(#333, 15%);
+        }
+        &--email{
+            margin: 0;
+            font-size: .8em;
+            color: lighten(#333, 25%);
+        }
+        &--id{
+            margin: 0;
+            font-size: 12px;
+            color: lighten(#333, 25%);
+        }
+    }
+}
